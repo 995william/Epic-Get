@@ -1,9 +1,12 @@
-2024-09-13 07:32:32 | INFO    | __main__:stash:131 | run - {'image': '20231121', 'version': '0.10.1.post2', 'role': 'EpicPlayer', 'headless': True}
-2024-09-13 07:32:36 | WARNING    | epic_games.agent:get_order_history:467 | Failed to get order history, cookie may have expired - {}
-2024-09-13 07:32:36 | DEBUG    | __main__:create_tasks:66 | Put task - {'title': 'SUPER CRAZY RHYTHM CASTLE', 'url': 'https://store.epicgames.com/en-US/p/super-crazy-rhythm-castle-e3b464'}
-2024-09-13 07:32:36 | DEBUG    | __main__:create_tasks:66 | Put task - {'title': 'Rugrats: Adventures in Gameland', 'url': 'https://store.epicgames.com/en-US/p/rugrats-adventures-in-gameland-737402'}
-2024-09-13 07:32:41 | INFO    | epic_games.agent:claim_weekly_games:294 | claim_weekly_games - {'action': 'go to store', 'url': 'https://store.epicgames.com/en-US/p/super-crazy-rhythm-castle-e3b464'}
-2024-09-13 07:32:51 | ERROR    | __main__:run:158 | An error has been caught in function 'run', process 'MainProcess' (3755), thread 'MainThread' (139842685918080): - {}
+2024-09-14 07:32:13 | INFO    | __main__:stash:131 | run - {'image': '20231121', 'version': '0.10.1.post2', 'role': 'EpicPlayer', 'headless': True}
+2024-09-14 07:32:23 | INFO    | __main__:claim_epic_games:97 | Try to flush cookie - {'task': 'claim_epic_games'}
+2024-09-14 07:32:28 | INFO    | epic_games.agent:_login:237 | login-with-email - {'url': 'https://www.epicgames.com/id/login?lang=en-US&noHostRedirect=true&redirectUrl=https://store.epicgames.com/en-US/free-games&__cf_chl_rt_tk=PbdT6nanyZgVg0CnpJQsrH7XLO852McTOgamkBL9ECU-1726270348-0.0.1.1-6633'}
+2024-09-14 07:32:58 | WARNING    | epic_games.agent:authorize:266 | 执行超时 - {'task': 'authorize', 'retry': 0}
+2024-09-14 07:33:01 | INFO    | epic_games.agent:_login:237 | login-with-email - {'url': 'https://www.epicgames.com/id/login?lang=en-US&noHostRedirect=true&redirectUrl=https://store.epicgames.com/en-US/free-games&__cf_chl_rt_tk=Akmo639rau0YUJrvvx.TDs4Z.WpvRyq3hI8onhNb7v8-1726270381-0.0.1.1-7551'}
+2024-09-14 07:33:31 | WARNING    | epic_games.agent:authorize:266 | 执行超时 - {'task': 'authorize', 'retry': 1}
+2024-09-14 07:33:34 | INFO    | epic_games.agent:_login:237 | login-with-email - {'url': 'https://www.epicgames.com/id/login?lang=en-US&noHostRedirect=true&redirectUrl=https://store.epicgames.com/en-US/free-games&__cf_chl_rt_tk=uFvBRQZ9P65N8RWE6punyKB.2.oXXIYh3soLoIP_0P4-1726270413-0.0.1.1-7551'}
+2024-09-14 07:34:04 | WARNING    | epic_games.agent:authorize:266 | 执行超时 - {'task': 'authorize', 'retry': 2}
+2024-09-14 07:34:04 | ERROR    | __main__:run:158 | An error has been caught in function 'run', process 'MainProcess' (3695), thread 'MainThread' (140241432968064): - {}
 Traceback (most recent call last):
   File "/home/runner/work/Epic-Get/Epic-Get/epic/src/claim.py", line 162, in <module>
     asyncio.run(run())
@@ -21,35 +24,8 @@ Traceback (most recent call last):
     await agent.stash()
   File "/home/runner/work/Epic-Get/Epic-Get/epic/src/claim.py", line 151, in stash
     await self.claim_epic_games(context)
-  File "/home/runner/work/Epic-Get/Epic-Get/epic/src/claim.py", line 122, in claim_epic_games
-    await epic.claim_weekly_games(page, single_promotions)
-  File "/opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 189, in async_wrapped
-    return await copy(fn, *args, **kwargs)
-  File "/opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 111, in __call__
-    do = await self.iter(retry_state=retry_state)
-  File "/opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 153, in iter
-    result = await action(retry_state)
-  File "/opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/site-packages/tenacity/_utils.py", line 99, in inner
-    return call(*args, **kwargs)
-  File "/opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/site-packages/tenacity/__init__.py", line 398, in <lambda>
-    self._add_action_func(lambda rs: rs.outcome.result())
-  File "/opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/concurrent/futures/_base.py", line 451, in result
-    return self.__get_result()
-  File "/opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/concurrent/futures/_base.py", line 403, in __get_result
-    raise self._exception
-  File "/opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/site-packages/tenacity/asyncio/__init__.py", line 114, in __call__
-    result = await fn(*args, **kwargs)
-  File "/home/runner/work/Epic-Get/Epic-Get/epic/src/epic_games/agent.py", line 310, in claim_weekly_games
-    await expect(cta_btn).to_have_text("View In Cart")
-  File "/opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/site-packages/playwright/async_api/_generated.py", line 19170, in to_have_text
-    await self._impl_obj.to_have_text(
-  File "/opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/site-packages/playwright/_impl/_assertions.py", line 481, in to_have_text
-    await self._expect_impl(
-  File "/opt/hostedtoolcache/Python/3.10.14/x64/lib/python3.10/site-packages/playwright/_impl/_assertions.py", line 74, in _expect_impl
-    raise AssertionError(
-AssertionError: Locator expected to have text 'View In Cart'
-Actual value: <element(s) not found> 
-Call log:
-LocatorAssertions.to_have_text with timeout 5000ms
-  - waiting for locator("//aside//button[@data-testid='add-to-cart-cta-button']")
-
+  File "/home/runner/work/Epic-Get/Epic-Get/epic/src/claim.py", line 98, in claim_epic_games
+    if await epic.authorize(page):
+  File "/home/runner/work/Epic-Get/Epic-Get/epic/src/epic_games/agent.py", line 269, in authorize
+    raise RuntimeError(f"Failed to flush token - agent={self.__class__.__name__}")
+RuntimeError: Failed to flush token - agent=EpicGames
